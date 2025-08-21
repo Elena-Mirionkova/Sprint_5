@@ -1,14 +1,14 @@
 from selenium.webdriver.common.by import By
 class loc:
     enter_button = (By.XPATH, '//button[text()="Войти в аккаунт"]') # Кнопка "Войти в аккаунт" на главной странице
-    lk_button = (By.XPATH, '//*[@id="root"]/div/header/nav/a') # Кнопка "Личный Кабинет" на главной странице
-    logo_button = (By.XPATH, '//*[@id="root"]/div/header/nav/div/a') # Кнопка с логотипом на главной странице
-    constructor_button = (By.XPATH, '//*[@id="root"]/div/header/nav/ul/li[1]/a') # Кнопка "Конструктор" на главной странице
+    lk_button = (By.XPATH, '//p[contains(text(),"Личный Кабинет")]/parent::a') # Кнопка "Личный Кабинет" на главной странице
+    logo_button = (By.XPATH, '//div[contains(@class,"AppHeader_header__logo")]') # Кнопка с логотипом на главной странице
+    constructor_button = (By.XPATH, '//p[contains(text(),"Конструктор")]/parent::a') # Кнопка "Конструктор" на главной странице
     order_button = (By.XPATH, '//button[text()="Оформить заказ"]') # Кнопка "Оформить заказ" на главной странице
     recover_button = (By.XPATH, '//button[text()="Восстановить"]') # Кнопка "Восстановить" на странице восстановления пароля
     save_button = (By.XPATH, '//button[text()="Сохранить"]') # Кнопка "Сохранить" с личном кабинете
     
-    login_from_register_button = (By.XPATH, '//*[@id="root"]/div/main/div/div/p/a') # Кнопка входа на странице регистрации и в форме восстановления пароля
+    login_from_register_button = (By.XPATH, '//a[contains(text(),"Войти")]') # Кнопка входа на странице регистрации и в форме восстановления пароля
     registration_name_input = (By.XPATH, '//label[text()="Имя"]/parent::*/input') # Поле ввода имени на странице регистрации
     registration_password_input = (By.XPATH, '//label[text()="Пароль"]/parent::*/input') # Поле ввода пароля на странице регистрации
     registration_confirm_button = (By.XPATH, '//button[text()="Зарегистрироваться"]') # Кнопка "Зарегистрироваться" на странице регистрации
@@ -25,3 +25,6 @@ class loc:
     sousy_tab = (By.XPATH, '//span[text()="Соусы"]/parent::*') # Кнопка раздела "Соусы"
     nachinki_tab = (By.XPATH, '//span[text()="Начинки"]/parent::*') # Кнопка раздела "Начинки"
     active_tab = (By.XPATH, '//div[contains(@class, "tab_tab_type_current")]') # Активная секция в конструкторе
+    bulki_text = 'Булки'
+    sousy_text = 'Соусы'
+    nachinki_text = 'Начинки'    

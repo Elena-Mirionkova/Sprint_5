@@ -10,8 +10,9 @@ from urls import *
 from locators import *
 from credentials import *
 
-# Тест на успешную регистрацию
-class TestSuccessfullRegistration:
+# Тесты сценариев регистрации
+class TestRegistrationForm:
+    # Тест на успешную регистрацию
     def test_successfull_registration(self, open_registr_page):
         driver=open_registr_page
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.registration_confirm_button))
@@ -22,8 +23,7 @@ class TestSuccessfullRegistration:
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.login_button))
         assert driver.current_url == login_page
 
-# Тест на попытку регистрации с пустым именем
-class TestEmptiNameRegistration:
+    # Тест на попытку регистрации с пустым именем
     def test_empti_nameR_rgistration(self, open_registr_page):
         driver=open_registr_page
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.registration_confirm_button))
@@ -33,8 +33,7 @@ class TestEmptiNameRegistration:
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.registration_confirm_button))
         assert driver.current_url == register_page
 
-# Тест на попытку регистрации с коротким паролем менее 6 символов
-class TestWrongPasswordRegistration:
+    # Тест на попытку регистрации с коротким паролем менее 6 символов
     def test_wrong_password_registration(self, open_registr_page):
         driver=open_registr_page
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.registration_confirm_button))
@@ -44,8 +43,7 @@ class TestWrongPasswordRegistration:
         driver.find_element(*loc.registration_confirm_button).click()
         assert WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc. error_incorrect_password))
 
-# Тест на попытку регистрации с уже зарегистрированным email
-class TestExistigUserRegistration:
+    # Тест на попытку регистрации с уже зарегистрированным email
     def test_existig_user_registration(self, open_registr_page):
         driver=open_registr_page
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.registration_confirm_button))

@@ -10,8 +10,9 @@ from urls import *
 from locators import *
 from credentials import *
 
-# Тест на переход по кнопке "Булки" в конструкторе на гравной странице
-class TestBulkiTab:
+# Тесты навигации по табам конструктора
+class TestConstructorTabs:
+    # Тест на переход по кнопке "Булки" в конструкторе на гравной странице
     def test_bulki_tab(self, open_main_page_logged_in):
         driver=open_main_page_logged_in
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button))
@@ -20,24 +21,22 @@ class TestBulkiTab:
         driver.find_element(*loc.bulki_tab).click()
         tab_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.active_tab))
         assert tab_element.is_displayed()
-        assert WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element(loc.active_tab,'Булки'))
+        assert WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element(loc.active_tab,loc.bulki_text))
 
-# Тест на переход по кнопке "Соусы" в конструкторе на гравной странице
-class TestSousTab:
+    # Тест на переход по кнопке "Соусы" в конструкторе на гравной странице
     def test_sous_tab(self, open_main_page_logged_in):
         driver=open_main_page_logged_in
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button))
         driver.find_element(*loc.sousy_tab).click()
         tab_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.active_tab))
         assert tab_element.is_displayed()
-        assert 'Соусы' in tab_element.text
+        assert loc.sousy_text in tab_element.text
 
-# Тест на переход по кнопке "Начинки" в конструкторе на гравной странице
-class TestNachTab:
+    # Тест на переход по кнопке "Начинки" в конструкторе на гравной странице
     def test_nach_tab(self, open_main_page_logged_in):
         driver=open_main_page_logged_in
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button))
         driver.find_element(*loc.nachinki_tab).click()
         tab_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.active_tab))
         assert tab_element.is_displayed()
-        assert 'Начинки' in tab_element.text
+        assert loc.nachinki_text in tab_element.text

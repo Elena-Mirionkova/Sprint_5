@@ -10,16 +10,16 @@ from urls import *
 from locators import *
 from credentials import *
 
-# Тест на переход по кнопке "Личный кабинет"
+# Тесты на навигацию по сайту
 class TestNavigateToLK:
+    # Тест на переход по кнопке "Личный кабинет"
     def test_navigate_to_lk(self, open_main_page_logged_in):
         driver=open_main_page_logged_in
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button))
         driver.find_element(*loc.lk_button).click()
         assert WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.save_button))
 
-# Тест на переход из личного кабинета в "Конструктор"
-class TestNavigateToKonstr:
+    # Тест на переход из личного кабинета в "Конструктор"
     def test_navigate_to_constr(self, open_main_page_logged_in):
         driver=open_main_page_logged_in
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button))
@@ -28,8 +28,7 @@ class TestNavigateToKonstr:
         driver.find_element(*loc.logo_button).click()
         assert WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button)) 
 
-# Тест на выход из аккаунта
-class TestExitAccount:
+    # Тест на выход из аккаунта
     def test_exit_account(self, open_main_page_logged_in):
         driver=open_main_page_logged_in
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button))
