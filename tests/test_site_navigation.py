@@ -25,7 +25,7 @@ class TestNavigateToLK:
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button))
         driver.find_element(*loc.lk_button).click()
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.save_button))
-        driver.find_element(*loc.logo_button).click()
+        driver.find_element(*loc.constructor_button).click()
         assert WebDriverWait(driver, 10).until(EC.visibility_of_element_located(loc.order_button)) 
 
     # Тест на выход из аккаунта
